@@ -2,20 +2,17 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#050505">
-  <meta name="description" content="MIRAGE Biella — Nightlife, eventi e nuove esperienze. Seguici su Instagram per tutte le novità.">
-
+  <meta name="description" content="MIRAGE Biella — Eventi, musica e nightlife.">
   <title>MIRAGE | Biella · Italy</title>
 
   <style>
     :root {
       --bg: #050505;
-      --panel: #101014;
       --cyan: #00f5ff;
-      --magenta: #ff36cf;
+      --magenta: #ff00d4;
       --white: #f8f8ff;
-      --muted: #b8b8c5;
     }
 
     * {
@@ -28,380 +25,125 @@
 
     body {
       margin: 0;
-      background: var(--bg);
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 35%,
+          rgba(255, 0, 212, 0.09), transparent 48%),
+        var(--bg);
       color: var(--white);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    a:focus-visible {
-      outline: 2px solid var(--cyan);
-      outline-offset: 5px;
-    }
-
-    .container {
-      width: min(1080px, calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    /* NAVIGAZIONE */
-    .site-header {
-      position: relative;
-      z-index: 2;
-      border-bottom: 1px solid #ffffff12;
-      background: #050505;
-    }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .brand {
-      color: var(--white);
-      font-size: 23px;
-      font-weight: 900;
-      letter-spacing: 5px;
-      text-decoration: none;
-      text-shadow: 0 0 15px #00f5ff55;
-    }
-
-    .brand span {
-      color: var(--cyan);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 22px;
-    }
-
-    .nav-links a {
-      color: #ddd;
-      font-size: 13px;
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--cyan);
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 76vh;
-      min-height: 76svh;
-      display: grid;
-      place-items: center;
-      padding: 80px 0;
       text-align: center;
-      background:
-        radial-gradient(ellipse at 18% 42%, #ff36cf18, transparent 42%),
-        radial-gradient(ellipse at 82% 55%, #00f5ff18, transparent 42%),
-        #050505;
-      overflow: hidden;
     }
 
-    .hero-content {
-      width: min(850px, 100%);
+    header {
+      padding: 24px 18px 12px;
     }
 
-    .eyebrow {
-      color: var(--magenta);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      margin: 14px 0 0;
-      color: #fff;
-      font-size: clamp(58px, 13vw, 132px);
-      font-weight: 900;
-      letter-spacing: clamp(5px, 2vw, 16px);
-      line-height: 1.1;
-      text-shadow:
-        0 0 8px #00f5ff66,
-        0 0 30px #00f5ff33,
-        0 0 48px #ff36cf22;
-    }
-
-    .hero h1 span {
-      color: var(--cyan);
+    /* Mantieni qui il percorso del logo originale.
+       Non modificare il file del logo esistente. */
+    .logo {
+      display: block;
+      width: min(72%, 320px);
+      max-height: 240px;
+      object-fit: contain;
+      margin: 10px auto 20px;
     }
 
     .location {
-      margin: 20px 0 0;
+      color: var(--cyan);
+      font-size: 0.8rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      text-shadow: 0 0 12px rgba(0, 245, 255, 0.7);
+    }
+
+    main {
+      width: min(100% - 32px, 760px);
+      margin: 0 auto;
+      padding: 35px 0 70px;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(2.5rem, 10vw, 5rem);
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-shadow:
+        0 0 8px var(--cyan),
+        0 0 25px rgba(0, 245, 255, 0.5);
+    }
+
+    .subtitle {
+      margin: 0 auto 34px;
+      color: #c9c9d5;
+      letter-spacing: 0.12em;
+      line-height: 1.8;
+      font-size: 0.9rem;
+    }
+
+    .neon-line {
+      width: min(220px, 65%);
+      height: 2px;
+      margin: 25px auto;
+      background: linear-gradient(
+        90deg, transparent, var(--magenta), var(--cyan), transparent
+      );
+      box-shadow: 0 0 14px rgba(255, 0, 212, 0.55);
+    }
+
+    .social-title {
       color: var(--magenta);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 6px;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin: 30px 0 18px;
     }
 
-    .hero-description {
-      max-width: 540px;
-      margin: 26px auto 30px;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .button {
+    .social-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 13px 24px;
-      border: 1px solid var(--cyan);
-      border-radius: 5px;
-      color: var(--cyan);
-      background: #00f5ff08;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-decoration: none;
-      transition:
-        background .2s,
-        box-shadow .2s,
-        transform .2s;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: #00f5ff12;
-      box-shadow: 0 0 20px #00f5ff44;
-    }
-
-    .button-magenta {
-      border-color: var(--magenta);
-      color: #fff;
-      box-shadow: 0 0 14px #ff36cf22;
-    }
-
-    .button-magenta:hover {
-      box-shadow: 0 0 22px #ff36cf66;
-    }
-
-    /* SEZIONI */
-    .section {
-      padding: 76px 0;
-      scroll-margin-top: 20px;
-    }
-
-    .section-heading {
-      margin: 0;
-      color: var(--cyan);
-      font-size: clamp(26px, 5vw, 38px);
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-align: center;
-      text-shadow: 0 0 15px #00f5ff22;
-    }
-
-    .section-intro {
-      max-width: 620px;
-      margin: 14px auto 34px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* EVENTI */
-    .events {
-      background: #09090c;
-      border-top: 1px solid #ffffff0d;
-      border-bottom: 1px solid #ffffff0d;
-    }
-
-    .event-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-      gap: 18px;
-      margin-top: 36px;
-    }
-
-    .event-card {
-      padding: 26px 22px;
-      border: 1px solid #00f5ff33;
-      border-radius: 8px;
-      background: linear-gradient(145deg, #111116, #09090b);
-      transition: border-color .2s, transform .2s;
-    }
-
-    .event-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--magenta);
-    }
-
-    .event-label {
-      color: var(--magenta);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 3px;
-    }
-
-    .event-card h3 {
-      margin: 12px 0 8px;
-      color: var(--cyan);
-      font-size: 22px;
-    }
-
-    .event-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* INSTAGRAM */
-    .instagram {
-      position: relative;
-      padding: 84px 0;
-      text-align: center;
-      background:
-        radial-gradient(ellipse at 20% 60%, #ff36cf12, transparent 45%),
-        radial-gradient(ellipse at 80% 40%, #00f5ff12, transparent 45%),
-        var(--bg);
-    }
-
-    .instagram-eyebrow {
-      margin: 0 0 12px;
-      color: var(--magenta);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 4px;
-    }
-
-    .instagram .section-heading {
-      max-width: 750px;
-      margin-inline: auto;
-    }
-
-    .instagram-description {
-      max-width: 520px;
-      margin: 18px auto 28px;
-      color: var(--muted);
-    }
-
-    .instagram-button {
-      display: inline-flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      max-width: 100%;
-      padding: 15px 22px;
+      gap: 10px;
+      min-width: 210px;
+      padding: 15px 24px;
       border: 1px solid var(--magenta);
-      border-radius: 7px;
-      color: #fff;
-      background: #090909;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      border-radius: 6px;
+      color: var(--white);
       text-decoration: none;
-      box-shadow: 0 0 12px #ff36cf33;
-      transition: transform .2s, box-shadow .2s, border-color .2s;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      background: rgba(255, 0, 212, 0.06);
+      box-shadow:
+        0 0 12px rgba(255, 0, 212, 0.15),
+        inset 0 0 12px rgba(255, 0, 212, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .instagram-button:hover {
-      transform: translateY(-3px);
-      border-color: var(--cyan);
-      box-shadow: 0 0 22px #00f5ff55, 0 0 18px #ff36cf33;
+    .social-link:hover,
+    .social-link:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+      box-shadow:
+        0 0 22px rgba(255, 0, 212, 0.4),
+        0 0 10px rgba(0, 245, 255, 0.2);
     }
 
-    .instagram-button svg {
-      width: 23px;
-      height: 23px;
-      color: var(--cyan);
+    .instagram-icon {
+      width: 21px;
+      height: 21px;
       flex-shrink: 0;
     }
 
-    .instagram-handle {
-      margin: 15px 0 0;
+    footer {
+      padding: 24px 16px 30px;
+      border-top: 1px solid rgba(0, 245, 255, 0.15);
+      color: #858592;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+    }
+
+    footer span {
       color: var(--cyan);
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    /* FOOTER */
-    .site-footer {
-      padding: 28px 0;
-      border-top: 1px solid #ffffff12;
-      text-align: center;
-      background: #030303;
-    }
-
-    .footer-brand {
-      color: var(--white);
-      font-weight: 900;
-      letter-spacing: 4px;
-    }
-
-    .footer-location {
-      margin: 4px 0;
-      color: var(--magenta);
-      font-size: 11px;
-      letter-spacing: 3px;
-    }
-
-    .copyright {
-      margin: 12px 0 0;
-      color: #777783;
-      font-size: 12px;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: min(100% - 30px, 1080px);
-      }
-
-      .nav {
-        min-height: 70px;
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        gap: 8px;
-        padding: 13px 0;
-      }
-
-      .brand {
-        font-size: 20px;
-      }
-
-      .nav-links {
-        gap: 15px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
-      }
-
-      .hero {
-        min-height: 68svh;
-        padding: 64px 0;
-      }
-
-      .hero-description {
-        font-size: 14px;
-      }
-
-      .location {
-        letter-spacing: 4px;
-      }
-
-      .section {
-        padding: 60px 0;
-      }
-
-      .instagram {
-        padding: 66px 0;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -409,137 +151,70 @@
         scroll-behavior: auto;
       }
 
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Navigazione principale">
-      <a class="brand" href="#home" aria-label="MIRAGE, torna all'inizio">
-        MIRAGE<span>.</span>
-      </a>
+  <header>
+    <!-- IMPORTANTE:
+         Sostituisci "logo-originale.png" con il nome ESATTO
+         del file del tuo logo già presente nel repository.
+         Non cambiare né ridisegnare il logo. -->
+    <img
+      class="logo"
+      src="logo-originale.png"
+      alt="Logo MIRAGE"
+    >
 
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#eventi">Eventi</a>
-        <a href="#instagram">Instagram</a>
-      </div>
-    </nav>
+    <div class="location">BIELLA · ITALY</div>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="hero-content container">
-        <p class="eyebrow">The night starts here</p>
+    <h1>MIRAGE</h1>
 
-        <h1>MIRA<span>GE</span></h1>
+    <div class="neon-line"></div>
 
-        <p class="location">BIELLA · ITALY</p>
+    <p class="subtitle">
+      MUSIC · EVENTS · NIGHTLIFE
+      <br>
+      Il tuo punto di riferimento per le serate.
+    </p>
 
-        <p class="hero-description">
-          Luci, musica e nuove esperienze.
-          Entra nel mondo MIRAGE e scopri cosa ti aspetta.
-        </p>
+    <section aria-label="Profili social">
+      <p class="social-title">Seguici sui social</p>
 
-        <a class="button" href="#eventi">
-          SCOPRI LE SERATE ↓
-        </a>
-      </div>
-    </section>
-
-    <section class="section events" id="eventi">
-      <div class="container">
-        <h2 class="section-heading">EVENTI MIRAGE</h2>
-
-        <p class="section-intro">
-          La notte prende vita. Resta aggiornato sulle prossime novità.
-        </p>
-
-        <div class="event-grid">
-          <article class="event-card">
-            <span class="event-label">MIRAGE EXPERIENCE</span>
-            <h3>Prossimamente</h3>
-            <p>
-              Stiamo preparando nuove esperienze.
-              Segui Instagram per gli annunci ufficiali.
-            </p>
-          </article>
-
-          <article class="event-card">
-            <span class="event-label">STAY TUNED</span>
-            <h3>Nuove serate</h3>
-            <p>
-              Date, location e dettagli verranno pubblicati
-              appena confermati.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="instagram" id="instagram">
-      <div class="container">
-        <p class="instagram-eyebrow">STAY CONNECTED</p>
-
-        <h2 class="section-heading">ENTRA NEL MONDO MIRAGE</h2>
-
-        <p class="instagram-description">
-          Segui le nostre serate, scopri le novità
-          e vivi l'esperienza MIRAGE.
-        </p>
-
-        <a
-          class="instagram-button"
-          href="https://www.instagram.com/themirage_official/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visita il profilo Instagram ufficiale di MIRAGE"
+      <a
+        class="social-link"
+        href="https://www.instagram.com/themirage_official/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Apri il profilo Instagram ufficiale MIRAGE"
+      >
+        <svg
+          class="instagram-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="1"
-              fill="currentColor" stroke="none"/>
-          </svg>
-
-          <span>SEGUICI SU INSTAGRAM</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-
-        <p class="instagram-handle">@themirage_official</p>
-      </div>
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/>
+        </svg>
+        INSTAGRAM
+      </a>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-brand">MIRAGE</div>
-      <p class="footer-location">BIELLA · ITALY</p>
-      <p class="copyright">
-        © <span id="current-year">2026</span> MIRAGE. Tutti i diritti riservati.
-      </p>
-    </div>
+  <footer>
+    <span>MIRAGE</span> · BIELLA · ITALY
   </footer>
-
-  <script>
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
-  </script>
 </body>
 </html>
