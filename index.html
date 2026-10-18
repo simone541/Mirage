@@ -3,218 +3,667 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050505">
-  <meta name="description" content="MIRAGE Biella — Eventi, musica e nightlife.">
-  <title>MIRAGE | Biella · Italy</title>
+  <meta name="theme-color" content="#050508">
+  <meta name="description" content="MIRAGE Youth Party Association — Eventi, musica e nuove esperienze a Biella.">
+  <title>MIRAGE — Youth Party Association | Biella</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #050505;
-      --cyan: #00f5ff;
-      --magenta: #ff00d4;
-      --white: #f8f8ff;
+      --bg: #050508;
+      --panel: #0d0d15;
+      --white: #f7f5ff;
+      --muted: #a09eaf;
+      --cyan: #00f0ff;
+      --pink: #ff00c8;
+      --line: rgba(255,255,255,.13);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
     body {
-      margin: 0;
-      min-height: 100vh;
-      background:
-        radial-gradient(ellipse at 50% 35%,
-          rgba(255, 0, 212, 0.09), transparent 48%),
-        var(--bg);
+      background: var(--bg);
       color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
+      font-family: 'Space Mono', monospace;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .top-line {
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--pink), var(--cyan));
     }
 
     header {
-      padding: 24px 18px 12px;
+      position: absolute;
+      top: 3px;
+      z-index: 5;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 7%;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,5,8,.55);
     }
 
-    /* Mantieni qui il percorso del logo originale.
-       Non modificare il file del logo esistente. */
-    .logo {
-      display: block;
-      width: min(72%, 320px);
-      max-height: 240px;
-      object-fit: contain;
-      margin: 10px auto 20px;
+    .brand {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 21px;
+      letter-spacing: 4px;
     }
 
-    .location {
-      color: var(--cyan);
-      font-size: 0.8rem;
-      letter-spacing: 0.32em;
+    .brand span { color: var(--cyan); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    nav a {
+      color: #c7c4d3;
+      font-size: 10px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      text-shadow: 0 0 12px rgba(0, 245, 255, 0.7);
+      transition: color .2s;
     }
 
-    main {
-      width: min(100% - 32px, 760px);
-      margin: 0 auto;
-      padding: 35px 0 70px;
+    nav a:hover { color: var(--cyan); }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      text-align: center;
+      padding: 145px 20px 90px;
+      background:
+        radial-gradient(ellipse at 50% 45%, rgba(255,0,200,.13), transparent 42%),
+        radial-gradient(ellipse at 50% 70%, rgba(0,240,255,.09), transparent 50%),
+        var(--bg);
     }
 
-    h1 {
-      margin: 12px 0;
-      font-size: clamp(2.5rem, 10vw, 5rem);
-      letter-spacing: 0.12em;
-      color: var(--white);
-      text-shadow:
-        0 0 8px var(--cyan),
-        0 0 25px rgba(0, 245, 255, 0.5);
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: min(70vw, 500px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(0,240,255,.14);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      width: min(48vw, 340px);
+      border-color: rgba(255,0,200,.2);
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .eyebrow, .section-label {
+      color: var(--cyan);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .emblem {
+      width: 75px;
+      height: 95px;
+      margin: 32px auto 25px;
+      position: relative;
+      filter: drop-shadow(0 0 12px rgba(0,240,255,.4));
+    }
+
+    .emblem::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 3px solid var(--cyan);
+      transform: rotate(45deg) scale(.72);
+      box-shadow: 4px 0 var(--pink);
+    }
+
+    .emblem::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(transparent, var(--pink), var(--cyan), transparent);
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(55px, 12vw, 145px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: .04em;
+      color: white;
+      text-shadow: 3px 0 var(--cyan), -3px 0 var(--pink);
+      animation: glitch 5s infinite;
     }
 
     .subtitle {
-      margin: 0 auto 34px;
-      color: #c9c9d5;
-      letter-spacing: 0.12em;
-      line-height: 1.8;
-      font-size: 0.9rem;
-    }
-
-    .neon-line {
-      width: min(220px, 65%);
-      height: 2px;
-      margin: 25px auto;
-      background: linear-gradient(
-        90deg, transparent, var(--magenta), var(--cyan), transparent
-      );
-      box-shadow: 0 0 14px rgba(255, 0, 212, 0.55);
-    }
-
-    .social-title {
-      color: var(--magenta);
-      font-size: 0.8rem;
-      letter-spacing: 0.25em;
+      margin-top: 23px;
+      font-size: clamp(10px, 1.6vw, 14px);
+      letter-spacing: clamp(2px, .8vw, 7px);
       text-transform: uppercase;
-      margin: 30px 0 18px;
     }
 
-    .social-link {
-      display: inline-flex;
-      align-items: center;
+    .location {
+      margin-top: 15px;
+      color: var(--pink);
+      font-size: 11px;
+      letter-spacing: 7px;
+    }
+
+    .hero-description {
+      max-width: 520px;
+      margin: 30px auto 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .actions, .contact-links {
+      display: flex;
       justify-content: center;
-      gap: 10px;
-      min-width: 210px;
-      padding: 15px 24px;
-      border: 1px solid var(--magenta);
-      border-radius: 6px;
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      background: rgba(255, 0, 212, 0.06);
-      box-shadow:
-        0 0 12px rgba(255, 0, 212, 0.15),
-        inset 0 0 12px rgba(255, 0, 212, 0.04);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 32px;
     }
 
-    .social-link:hover,
-    .social-link:focus-visible {
-      transform: translateY(-2px);
-      outline: none;
-      box-shadow:
-        0 0 22px rgba(255, 0, 212, 0.4),
-        0 0 10px rgba(0, 245, 255, 0.2);
+    .btn {
+      display: inline-block;
+      padding: 14px 21px;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: .25s;
     }
 
-    .instagram-icon {
-      width: 21px;
-      height: 21px;
-      flex-shrink: 0;
+    .btn:hover {
+      background: var(--cyan);
+      color: var(--bg);
+      box-shadow: 0 0 22px rgba(0,240,255,.25);
+    }
+
+    .btn.primary {
+      color: var(--bg);
+      background: var(--pink);
+      border-color: var(--pink);
+    }
+
+    .btn.primary:hover {
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    .scroll-note {
+      position: absolute;
+      bottom: 24px;
+      left: 0;
+      width: 100%;
+      color: #777583;
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    section { padding: 100px 7%; }
+
+    .section-title {
+      margin-top: 15px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .section-title span {
+      color: var(--pink);
+      text-shadow: 2px 0 rgba(0,240,255,.45);
+    }
+
+    .section-intro {
+      max-width: 580px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .events { background: #08080d; }
+
+    .events-header { margin-bottom: 40px; }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .event-card {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      padding: 27px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(0deg, #08080d 5%, transparent 100%),
+        radial-gradient(ellipse at 70% 20%, rgba(255,0,200,.27), transparent 55%),
+        radial-gradient(ellipse at 20% 35%, rgba(0,240,255,.2), transparent 55%),
+        #10101a;
+      transition: .3s;
+    }
+
+    .event-card:nth-child(2) {
+      background:
+        linear-gradient(0deg, #08080d 5%, transparent 100%),
+        radial-gradient(ellipse at 75% 25%, rgba(0,240,255,.3), transparent 55%),
+        radial-gradient(ellipse at 25% 65%, rgba(255,0,200,.2), transparent 55%),
+        #10101a;
+    }
+
+    .event-card:hover {
+      border-color: var(--pink);
+      transform: translateY(-5px);
+    }
+
+    .event-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: rgba(255,255,255,.16);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 34px;
+    }
+
+    .event-tag {
+      margin-bottom: 12px;
+      color: var(--cyan);
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+
+    .event-card h3 {
+      margin-bottom: 12px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 23px;
+    }
+
+    .event-card p {
+      color: #b6b3c2;
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .event-link {
+      margin-top: 20px;
+      color: var(--pink);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .about-art {
+      min-height: 370px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: radial-gradient(ellipse, rgba(255,0,200,.12), transparent 55%), #08080d;
+    }
+
+    .about-art::before,
+    .about-art::after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      aspect-ratio: 1;
+      border: 2px solid var(--cyan);
+      transform: rotate(45deg);
+      box-shadow: 5px 0 var(--pink);
+    }
+
+    .about-art::after {
+      width: 145px;
+      border-color: var(--pink);
+      box-shadow: -4px 0 var(--cyan);
+    }
+
+    .about-art span {
+      position: relative;
+      z-index: 1;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 80px;
+      font-weight: 900;
+      text-shadow: 3px 0 var(--cyan), -3px 0 var(--pink);
+    }
+
+    .about-copy p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 2.2;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .value {
+      padding-top: 13px;
+      border-top: 1px solid var(--pink);
+      font-size: 9px;
+      letter-spacing: .5px;
+    }
+
+    .gallery { background: #08080d; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .gallery-tile {
+      min-height: 190px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(0,240,255,.1), transparent 50%),
+        linear-gradient(315deg, rgba(255,0,200,.13), transparent 50%),
+        #0d0d15;
+      color: #aaa7b8;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .gallery-tile:first-child {
+      grid-row: span 2;
+      min-height: 250px;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 22px;
+      text-shadow: 2px 0 var(--cyan), -2px 0 var(--pink);
+    }
+
+    .contact {
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 100%, rgba(255,0,200,.12), transparent 55%), var(--bg);
+    }
+
+    .contact .section-intro {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     footer {
-      padding: 24px 16px 30px;
-      border-top: 1px solid rgba(0, 245, 255, 0.15);
-      color: #858592;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 27px 7%;
+      border-top: 1px solid var(--line);
+      color: #777583;
+      font-size: 9px;
+      letter-spacing: 1px;
     }
 
-    footer span {
-      color: var(--cyan);
+    footer strong {
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 3px;
+    }
+
+    @keyframes glitch {
+      0%, 94%, 100% { transform: translate(0); }
+      95% { transform: translate(-2px, 1px); }
+      96% { transform: translate(3px, -1px); }
+      97% { transform: translate(-1px, 0); }
+      98% { transform: translate(2px, 1px); }
+    }
+
+    @media (max-width: 800px) {
+      header { padding: 20px 5%; }
+      nav { gap: 13px; }
+      nav a { font-size: 8px; }
+      .brand { font-size: 17px; }
+      section { padding: 75px 6%; }
+      .event-grid { grid-template-columns: 1fr; }
+      .event-card { min-height: 245px; }
+      .about { grid-template-columns: 1fr; gap: 35px; }
+      .about-art { min-height: 290px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-tile:first-child { grid-row: auto; min-height: 190px; }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 7px;
+      }
+
+      nav a { font-size: 8px; letter-spacing: 0; }
+      .hero { min-height: 90svh; }
+      .eyebrow { font-size: 9px; letter-spacing: 2px; }
+      .subtitle { letter-spacing: 2px; }
+      .location { letter-spacing: 5px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-tile, .gallery-tile:first-child { min-height: 160px; }
+      .values { gap: 8px; }
+      .value { font-size: 8px; }
+      footer { flex-direction: column; text-align: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
+      html { scroll-behavior: auto; }
       *, *::before, *::after {
-        transition-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <!-- IMPORTANTE:
-         Sostituisci "logo-originale.png" con il nome ESATTO
-         del file del tuo logo già presente nel repository.
-         Non cambiare né ridisegnare il logo. -->
-    <img
-      class="logo"
-      src="logo-originale.png"
-      alt="Logo MIRAGE"
-    >
+  <div class="noise" aria-hidden="true"></div>
+  <div class="top-line"></div>
 
-    <div class="location">BIELLA · ITALY</div>
+  <header>
+    <a class="brand" href="#home">MIRA<span>G</span>E.</a>
+
+    <nav aria-label="Navigazione principale">
+      <a href="#home">Home</a>
+      <a href="#eventi">Eventi</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
   </header>
 
   <main>
-    <h1>MIRAGE</h1>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">Independent youth culture · Est. Biella</p>
 
-    <div class="neon-line"></div>
+        <div class="emblem" aria-hidden="true"></div>
 
-    <p class="subtitle">
-      MUSIC · EVENTS · NIGHTLIFE
-      <br>
-      Il tuo punto di riferimento per le serate.
-    </p>
+        <h1>MIRAGE</h1>
+        <p class="subtitle">Youth Party Association</p>
+        <p class="location">BIELLA · ITALY</p>
 
-    <section aria-label="Profili social">
-      <p class="social-title">Seguici sui social</p>
+        <p class="hero-description">
+          Non è solo una festa. È un mondo da vivere.
+          Musica, persone ed energia si incontrano per creare qualcosa di diverso.
+        </p>
 
-      <a
-        class="social-link"
-        href="https://www.instagram.com/themirage_official/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Apri il profilo Instagram ufficiale MIRAGE"
-      >
-        <svg
-          class="instagram-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/>
-        </svg>
-        INSTAGRAM
-      </a>
+        <div class="actions">
+          <a class="btn primary" href="#eventi">Scopri gli eventi ↗️</a>
+          <a class="btn" href="#about">Entra nel mondo Mirage</a>
+        </div>
+      </div>
+
+      <div class="scroll-note">SCROLL TO EXPLORE ↓</div>
+    </section>
+
+    <section class="events" id="eventi">
+      <div class="events-header">
+        <p class="section-label">// 01 — What's next</p>
+        <h2 class="section-title">Beyond the <span>ordinary.</span></h2>
+        <p class="section-intro">
+          Ogni evento ha la sua identità. Scopri le prossime date,
+          le location e tutte le informazioni per partecipare.
+        </p>
+      </div>
+
+      <div class="event-grid">
+        <article class="event-card">
+          <span class="event-number">01</span>
+          <p class="event-tag">COMING SOON</p>
+          <h3>THE NEXT ONE</h3>
+          <p>La prossima esperienza MIRAGE. Data e location in arrivo.</p>
+          <a class="event-link" href="#contatti">RESTA AGGIORNATO ↗️</a>
+        </article>
+
+        <article class="event-card">
+          <span class="event-number">02</span>
+          <p class="event-tag">MUSIC · LIGHTS · PEOPLE</p>
+          <h3>AFTER DARK</h3>
+          <p>Nuove sonorità, luci e un'atmosfera tutta da scoprire.</p>
+          <a class="event-link" href="#contatti">SEGUI LE NEWS ↗️</a>
+        </article>
+
+        <article class="event-card">
+          <span class="event-number">03</span>
+          <p class="event-tag">YOUR NEXT MEMORY</p>
+          <h3>STAY TUNED</h3>
+          <p>Stiamo preparando qualcosa. Il resto lo scoprirai presto.</p>
+          <a class="event-link" href="#contatti">NON PERDERTI NIENTE ↗️</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-art" aria-label="Simbolo grafico MIRAGE">
+        <span>M</span>
+      </div>
+
+      <div class="about-copy">
+        <p class="section-label">// 02 — Who we are</p>
+        <h2 class="section-title">We create<br><span>the unreal.</span></h2>
+
+        <p>
+          MIRAGE nasce dalla voglia di creare qualcosa di nuovo:
+          eventi, connessioni e momenti che lasciano il segno.
+          Siamo un'associazione giovanile di Biella e crediamo
+          nella musica, nella creatività e nella libertà di esprimersi.
+        </p>
+
+        <p>Non seguiamo la scena. Creiamo la nostra.</p>
+
+        <div class="values">
+          <div class="value">01 / MUSIC</div>
+          <div class="value">02 / COMMUNITY</div>
+          <div class="value">03 / EXPERIENCE</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <p class="section-label">// 03 — The visual archive</p>
+      <h2 class="section-title">Moments in <span>motion.</span></h2>
+      <p class="section-intro">
+        Le notti, le persone e le emozioni che fanno parte del mondo MIRAGE.
+        Presto qui troverai le foto dei nostri eventi.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-tile">MIRAGE / VISUAL ARCHIVE</div>
+        <div class="gallery-tile">YOUR PHOTO HERE_01</div>
+        <div class="gallery-tile">YOUR PHOTO HERE_02</div>
+        <div class="gallery-tile">YOUR PHOTO HERE_03</div>
+        <div class="gallery-tile">YOUR PHOTO HERE_04</div>
+      </div>
+    </section>
+
+    <section class="contact" id="contatti">
+      <p class="section-label">// 04 — Connect with us</p>
+      <h2 class="section-title">Enter the <span>mirage.</span></h2>
+
+      <p class="section-intro">
+        Vuoi partecipare ai nostri eventi, collaborare con noi
+        o saperne di più? Seguici sui social.
+        Tutto comincia da qui.
+      </p>
+
+      <div class="contact-links">
+        <!-- Profilo Instagram ufficiale MIRAGE -->
+        <a class="btn primary" href="https://www.instagram.com/themirage_official?xtok=MXN5aDl3bHN6N2VvZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram ↗️</a>
+        <a class="btn" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok ↗️</a>
+        <a class="btn" href="mailto:">Email ↗️</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <span>MIRAGE</span> · BIELLA · ITALY
+    <strong>MIRAGE.</strong>
+    <span>YOUTH PARTY ASSOCIATION · BIELLA</span>
+    <span>©️ <span id="year"></span> MIRAGE — ALL RIGHTS RESERVED</span>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
