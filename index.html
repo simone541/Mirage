@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090d">
+  <meta name="description" content="MIRAGE — musica, persone, libertà. Scopri i nostri eventi.">
+  <title>MIRAGE — Enter the Unknown</title>
+  <style>
+    :root {
+      --bg: #09090d;
+      --lime: #d9ff00;
+      --pink: #ff36c7;
+      --purple: #8b5cf6;
+      --white: #f5f5f5;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 7%;
+      border-bottom: 1px solid #292932;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 1000;
+      letter-spacing: -2px;
+    }
+
+    .logo span { color: var(--lime); }
+
+    nav a:last-child {
+      border: 1px solid var(--lime);
+      padding: 11px 17px;
+      color: var(--lime);
+      font-size: .75rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      min-height: 80vh;
+      padding: 90px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 80% 45%, #7616a655, transparent 42%),
+        radial-gradient(ellipse at 15% 80%, #ff36c733, transparent 38%),
+        linear-gradient(135deg, #101018, #09090d 70%);
+    }
+
+    .eyebrow {
+      color: var(--lime);
+      letter-spacing: 5px;
+      font-size: .75rem;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(4rem, 13vw, 11rem);
+      line-height: .8;
+      letter-spacing: -.09em;
+      margin: 30px 0;
+      font-weight: 1000;
+      overflow-wrap: anywhere;
+    }
+
+    h1 span {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--lime);
+    }
+
+    .intro {
+      max-width: 460px;
+      line-height: 1.7;
+      color: #c5c5d0;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--lime);
+      color: #09090d;
+      padding: 17px 23px;
+      font-weight: 900;
+      font-size: .8rem;
+      letter-spacing: 1px;
+      margin-top: 20px;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px #d9ff0055;
+    }
+
+    section { padding: 80px 7%; }
+
+    .section-tag {
+      color: var(--pink);
+      letter-spacing: 4px;
+      font-size: .7rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      letter-spacing: -.06em;
+      margin: 15px 0 35px;
+    }
+
+    .event {
+      border-top: 1px solid #353540;
+      border-bottom: 1px solid #353540;
+      padding: 30px 0;
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .event h3 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+    }
+
+    .event p { color: #aaaab7; margin: 0; }
+
+    .event-label {
+      color: var(--lime);
+      font-size: .75rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .manifesto {
+      background:
+        radial-gradient(ellipse at 90% 20%, #8b5cf644, transparent 40%),
+        #13131a;
+    }
+
+    .manifesto p {
+      max-width: 700px;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      line-height: 1.6;
+      color: #d1d1db;
+    }
+
+    .manifesto strong { color: var(--lime); }
+
+    footer {
+      padding: 35px 7%;
+      border-top: 1px solid #292932;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #aaaab7;
+      font-size: .85rem;
+    }
+
+    footer a { color: var(--lime); }
+
+    @media (max-width: 600px) {
+      nav { padding: 20px 6%; }
+      .hero { min-height: 75vh; padding: 65px 6%; }
+      section { padding: 60px 6%; }
+      h1 { font-size: 19vw; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="#">MIRAGE<span>®</span></a>
+    <a href="#events">DISCOVER EVENTS ↗</a>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="eyebrow">INDEPENDENT MUSIC EXPERIENCES</div>
+      <h1>ENTER THE<br><span>UNKNOWN.</span></h1>
+      <p class="intro">
+        Non è solo una festa. È un'altra dimensione.
+        Musica, energia e persone che vivono la notte senza filtri.
+      </p>
+      <div>
+        <a class="button" href="#events">SCOPRI I NOSTRI EVENTI ↗</a>
+      </div>
+    </header>
+
+    <section id="events">
+      <div class="section-tag">SAVE THE DATE</div>
+      <h2>THE NEXT<br>EXPERIENCE.</h2>
+
+      <article class="event">
+        <div>
+          <div class="event-label">UPCOMING EVENT</div>
+          <h3>THE FIRST CHAPTER</h3>
+          <p>Data e location in arrivo. Resta connesso.</p>
+        </div>
+        <a class="button" href="#contact">STAY TUNED ↗</a>
+      </article>
+    </section>
+
+    <section class="manifesto">
+      <div class="section-tag">THIS IS MIRAGE</div>
+      <h2>FEEL THE<br>FREQUENCY.</h2>
+      <p>
+        Luci che tagliano il buio. Bassi che senti dentro.
+        <strong>Una community, nessuna etichetta, energia pura.</strong>
+        Questa è solo l'inizio.
+      </p>
+    </section>
+
+    <section id="contact">
+      <div class="section-tag">JOIN THE MOVEMENT</div>
+      <h2>DON'T MISS<br>THE NEXT ONE.</h2>
+      <p class="intro">
+        Vuoi sapere quando esce il prossimo evento?
+        Seguici sui social e resta nel loop.
+      </p>
+      <!-- Sostituisci # con il link Instagram ufficiale di Mirage -->
+      <a class="button" href="#" aria-label="Instagram di Mirage">
+        FOLLOW MIRAGE ON INSTAGRAM ↗
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#">MIRAGE<span>®</span></a>
+    <span> MUSIC. PEOPLE. FREEDOM.</span>
+    <span>© MIRAGE 2026</span>
+  </footer>
+</body>
+</html>
